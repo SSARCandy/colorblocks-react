@@ -11,3 +11,7 @@ export const COLOR_MAP = [
   'green',
   'yellow'
 ];
+
+export const INIT_TIME = 60;
+export const COMBO_THRES = 5;
+export const COMBO_BONUS = 5;

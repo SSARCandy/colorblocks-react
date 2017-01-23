@@ -3,7 +3,7 @@ import StatusPanel from './StatusPanel';
 import Question from './Question';
 import ArrowKey from './ArrowKey';
 import End from './End';
-import { KEY_COLOR_MAP, COLOR_MAP } from '../constants';
+import { KEY_COLOR_MAP, COLOR_MAP, INIT_TIME, COMBO_THRES, COMBO_BONUS } from '../constants';
 import { shuffle } from '../utils';
 import '../style/App.css';
 
@@ -19,7 +19,7 @@ export default class App extends Component {
       combo: 0,
       answered: 0,
       correct: 0,
-      time: 60,
+      time: INIT_TIME,
       questionColor: [0, 1, 2, 3]
     };
   }
@@ -44,32 +44,31 @@ export default class App extends Component {
   }
 
   answerQuestion = (ans) => {
+    const { answered, correct, combo, time } = this.state;
+    let nextState = {
+      answered: answered + 1
+    };
     if (ans === this.state.questionColor[3]) {
-      console.log('correct', ans);
-      this.setState({
-        answered: this.state.answered + 1,
-        correct: this.state.correct + 1,
-        currentState: 'correct',
-        combo: this.state.combo + 1
-      });
-      if (this.state.combo % 10 === 0) {
-        this.setState({
-          time: Math.min(this.state.time + 10, 60)
-        });
+      if ((combo + 1) % COMBO_THRES === 0) {
+        nextState.time = Math.min(time + COMBO_BONUS, INIT_TIME);
       }
+      nextState = Object.assign(nextState, {
+        correct: correct + 1,
+        currentState: 'correct',
+        combo: combo + 1,
+      });
     } else {
-      console.log('wrong');
-      this.setState({
-        answered: this.state.answered + 1,
+      nextState = Object.assign(nextState, {
+        answered: answered + 1,
         currentState: 'wrong',
         combo: 0
       });
     }
+    this.setState(nextState);
   }
 
   handleKeyDown = (keyCode) => {
     if (this.state.currentState) return;
-    console.log(keyCode);
     if (!~[37, 38, 39, 40].indexOf(keyCode)) return;
 
     this.answerQuestion(KEY_COLOR_MAP[keyCode]);
@@ -88,7 +87,7 @@ export default class App extends Component {
       correct: 0,
       currentState: '',
       combo: 0,
-      time: 60,
+      time: INIT_TIME,
       questionColor: [0, 1, 2, 3]
     });
 
@@ -97,7 +96,8 @@ export default class App extends Component {
 
   render() {
     const {correct, answered, time, combo, questionColor, currentState, start} = this.state;
-    const bonusTime = combo && (combo % 1 === 0);
+    const bonusTime = (combo > 0) && (combo % COMBO_THRES === 0);
+    console.log(bonusTime)
 
     return (
       <div className='container' onKeyDown={(event) => {this.handleKeyDown(event.keyCode)}} tabIndex={0}>
