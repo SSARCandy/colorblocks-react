@@ -4,13 +4,6 @@
   text-align: center;
 }
 
-.btn-restart {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  z-index: 100;
-}
-
 .overlay{
   position: absolute;
   top: 0;

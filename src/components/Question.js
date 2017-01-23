@@ -12,14 +12,12 @@ export default class Question extends Component {
     const {color} = this.props;
     const style = {
       color: COLOR_MAP[color[0]],
-      background: COLOR_MAP[color[1]],
-      textAlign: 'center',
-      padding: '10px'
+      background: COLOR_MAP[color[1]]
     };
 
     return (
       <div className='question-wrap'>
-        <div style={style}>
+        <div style={style} className='question'>
           {COLOR_MAP[color[2]].toUpperCase()}
         </div>
       </div>

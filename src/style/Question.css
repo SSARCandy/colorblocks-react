@@ -3,3 +3,9 @@
     height: 200px;
     margin: 0 auto;
 }
+
+.question {
+  text-align: center;
+  padding: 10px;
+  font-weight: 700;
+}

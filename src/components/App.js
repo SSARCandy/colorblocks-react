@@ -89,8 +89,11 @@ export default class App extends Component {
         <ArrowKey handleKeyDown={this.handleKeyDown}/>
         {!start && (
           <div>
-            <End score={score} answered={answered} correct={correct}/>
-            <button className='btn-restart' onClick={this.handleRestart}>RESTART</button>
+            <End
+              handleRestart={this.handleRestart}
+              score={score}
+              answered={answered}
+              correct={correct}/>
             <div className='overlay'/>
           </div>
         )}
