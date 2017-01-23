@@ -1,0 +1,40 @@
+.arrow-wrap {
+    width: 50px;
+    margin: 0 auto;
+}
+
+.btn-up {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background: red;
+    position: relative;
+}
+
+.btn-left {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background: green;
+    position: relative;
+    right: 50px;
+}
+
+.btn-down {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background: yellow;
+    position: relative;
+    top: -50px;
+}
+
+.btn-right {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background: blue;
+    position: relative;
+    top: -100px;
+    left: 50px;
+}

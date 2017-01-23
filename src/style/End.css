@@ -1,0 +1,12 @@
+.end-wrap {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 116px);
+    font-size: 24px;
+    background: #999;
+    z-index: 100;
+}
+
+td:nth-child(2) {
+    text-align: right;
+}

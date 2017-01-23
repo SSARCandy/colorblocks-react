@@ -1,0 +1,11 @@
+.status {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 10px;
+    display: inline;
+}
+
+.status-wrap {
+    text-align: center;
+    margin: 20px auto;
+}
