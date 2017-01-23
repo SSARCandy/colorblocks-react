@@ -9,3 +9,17 @@
   padding: 10px;
   font-weight: 700;
 }
+
+.green {
+    position: relative;
+    left: 110px;
+    top: -28px;
+    color: green;
+}
+
+.red {
+    position: relative;
+    left: 110px;
+    top: -28px;
+    color: red;
+}

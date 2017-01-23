@@ -9,17 +9,19 @@ export default class Question extends Component {
   }
 
   render() {
-    const {color} = this.props;
+    const {color, result} = this.props;
     const style = {
       color: COLOR_MAP[color[0]],
       background: COLOR_MAP[color[1]]
     };
+    const resultStyle = result == 'correct' ? 'green' : 'red';
 
     return (
       <div className='question-wrap'>
         <div style={style} className='question'>
           {COLOR_MAP[color[2]].toUpperCase()}
         </div>
+        {result && <span className={resultStyle}>{result.toUpperCase()}!</span>}
       </div>
     );
   }

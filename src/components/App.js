@@ -15,6 +15,7 @@ export default class App extends Component {
 
     this.state = {
       start: false,
+      currentState: '',      
       answered: 0,
       correct: 0,
       score: 0,
@@ -49,21 +50,29 @@ export default class App extends Component {
         score: this.state.score + 1,
         answered: this.state.answered + 1,
         correct: this.state.correct + 1,
+        currentState: 'correct'
       });
     } else {
       console.log('wrong');
       this.setState({
-        answered: this.state.answered + 1
+        answered: this.state.answered + 1,
+        currentState: 'wrong'
       });
     }
   }
 
   handleKeyDown = (keyCode) => {
+    if (this.state.currentState) return;
     console.log(keyCode);
     if (!~[37, 38, 39, 40].indexOf(keyCode)) return;
 
     this.answerQuestion(KEY_COLOR_MAP[keyCode]);
-    this.generateQuestion();
+    setTimeout(() => {
+      this.setState({
+        currentState: ''
+      });
+      this.generateQuestion();
+    }, 500);
   }
 
   handleRestart = () => {
@@ -71,6 +80,7 @@ export default class App extends Component {
       start: true,
       answered: 0,
       correct: 0,
+      currentState: '',
       score: 0,
       time: 60,
       questionColor: [0, 1, 2, 3]
@@ -80,12 +90,12 @@ export default class App extends Component {
   }
 
   render() {
-    const {score, correct, answered, time, questionColor, start} = this.state;
+    const {score, correct, answered, time, questionColor, currentState, start} = this.state;
 
     return (
       <div className='container' onKeyDown={(event) => {this.handleKeyDown(event.keyCode)}} tabIndex={0}>
         <StatusPanel time={time} score={score} />
-        <Question color={questionColor}/>
+        <Question color={questionColor} result={currentState}/>
         <ArrowKey handleKeyDown={this.handleKeyDown}/>
         {!start && (
           <div>
