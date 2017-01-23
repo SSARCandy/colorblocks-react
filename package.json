@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --content-base dist",
+    "build": "NODE_ENV=production webpack src",
     "lint": "eslint --config .linter/.eslintrc --ignore-path .linter/.eslintignore ."
   },
   "keywords": [],

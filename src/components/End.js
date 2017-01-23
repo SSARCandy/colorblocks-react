@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {INIT_TIME, COMBO_THRES} from '../constants';
 import '../style/End.css';
 
 export default class End extends Component {
@@ -14,8 +15,8 @@ export default class End extends Component {
         <h2 style={{textAlign: 'center'}}>!!  Welcome to COLOR - BLOCK !!</h2>
         <ul>
           <li>Answer the color that didn't appear in Questions.</li>
-          <li>You have 60 sec to answer these questions.</li>
-          <li>You will get bonus time if you get 10 combo corrects.</li>
+          <li>You have {INIT_TIME} sec to answer these questions.</li>
+          <li>You will get bonus time if you get {COMBO_THRES} combo corrects.</li>
           <li>Use arrow keys or click button to answer.</li>
         </ul>
         { answered > 0 && (
