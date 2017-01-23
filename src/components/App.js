@@ -15,11 +15,11 @@ export default class App extends Component {
 
     this.state = {
       start: false,
-      currentState: '',      
+      currentState: '',
+      combo: 0,
       answered: 0,
       correct: 0,
-      score: 0,
-      time: 10,
+      time: 60,
       questionColor: [0, 1, 2, 3]
     };
   }
@@ -47,16 +47,22 @@ export default class App extends Component {
     if (ans === this.state.questionColor[3]) {
       console.log('correct', ans);
       this.setState({
-        score: this.state.score + 1,
         answered: this.state.answered + 1,
         correct: this.state.correct + 1,
-        currentState: 'correct'
+        currentState: 'correct',
+        combo: this.state.combo + 1
       });
+      if (this.state.combo % 10 === 0) {
+        this.setState({
+          time: Math.min(this.state.time + 10, 60)
+        });
+      }
     } else {
       console.log('wrong');
       this.setState({
         answered: this.state.answered + 1,
-        currentState: 'wrong'
+        currentState: 'wrong',
+        combo: 0
       });
     }
   }
@@ -81,7 +87,7 @@ export default class App extends Component {
       answered: 0,
       correct: 0,
       currentState: '',
-      score: 0,
+      combo: 0,
       time: 60,
       questionColor: [0, 1, 2, 3]
     });
@@ -90,18 +96,18 @@ export default class App extends Component {
   }
 
   render() {
-    const {score, correct, answered, time, questionColor, currentState, start} = this.state;
+    const {correct, answered, time, combo, questionColor, currentState, start} = this.state;
+    const bonusTime = combo && (combo % 1 === 0);
 
     return (
       <div className='container' onKeyDown={(event) => {this.handleKeyDown(event.keyCode)}} tabIndex={0}>
-        <StatusPanel time={time} score={score} />
+        <StatusPanel time={time} score={correct} bonus={bonusTime}/>
         <Question color={questionColor} result={currentState}/>
         <ArrowKey handleKeyDown={this.handleKeyDown}/>
         {!start && (
           <div>
             <End
               handleRestart={this.handleRestart}
-              score={score}
               answered={answered}
               correct={correct}/>
             <div className='overlay'/>

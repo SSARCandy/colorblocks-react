@@ -7,7 +7,7 @@ export default class End extends Component {
   }
 
   render() {
-    const {handleRestart, answered, correct, scores} = this.props;
+    const {handleRestart, answered, correct} = this.props;
 
     return (
       <div className='end-wrap'>

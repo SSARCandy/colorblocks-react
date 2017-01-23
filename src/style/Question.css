@@ -11,15 +11,18 @@
 }
 
 .green {
+    font-size: 30px;
     position: relative;
     left: 110px;
-    top: -28px;
+    top: -30px;
     color: green;
 }
 
 .red {
+    font-size: 30px;
     position: relative;
     left: 110px;
-    top: -28px;
+    top: -30px;
     color: red;
 }
+
