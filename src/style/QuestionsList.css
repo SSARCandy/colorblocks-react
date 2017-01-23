@@ -1,0 +1,24 @@
+.questionlist-container {
+    margin: 0 auto;
+    width: 700px;
+    overflow: hidden;
+}
+
+.questionlist-wrap {
+    float: right;
+    display: flex;
+}
+
+.focus {
+    filter: brightness(100%);
+
+}
+
+.masked {
+    filter: brightness(50%);
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}

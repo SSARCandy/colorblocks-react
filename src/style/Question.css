@@ -1,7 +1,8 @@
 .question-wrap {
     width: 100px;
-    height: 200px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+    padding: 20px;
+    transition: all .4s ease-out;
 }
 
 .question {
@@ -13,16 +14,18 @@
 .green {
     font-size: 30px;
     position: relative;
-    left: 110px;
-    top: -30px;
+    left: 80px;
+    top: -25px;
+    text-shadow: -1px -1px 9px black;
     color: green;
 }
 
 .red {
     font-size: 30px;
     position: relative;
-    left: 110px;
-    top: -30px;
+    left: 80px;
+    top: -25px;
+    text-shadow: -1px -1px 9px black;
     color: red;
 }
 
