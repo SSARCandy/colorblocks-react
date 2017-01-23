@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 
-const PROD = (process.env.NODE_ENV === 'production')? true : false;
+const PROD = (process.env.NODE_ENV === 'production') ? true : false;
 
 let plugins = [
 ];
@@ -14,13 +14,13 @@ const prod_plugins = [
     mangle: false,
   }),
   new webpack.DefinePlugin({
-    'process.env':{
+    'process.env': {
       'NODE_ENV': JSON.stringify('production')
     }
   })
 ];
 
-plugins = plugins.concat(PROD?prod_plugins: []);
+plugins = plugins.concat(PROD ? prod_plugins : []);
 
 module.exports = {
   devtool: 'source-map',
@@ -41,5 +41,4 @@ module.exports = {
     ]
   },
   plugins: plugins
-
 };

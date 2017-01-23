@@ -31,7 +31,7 @@ export default class App extends Component {
       }, {
         color: shuffle([0,1,2,3]),
         state: ''
-     }]
+      }]
     };
   }
 

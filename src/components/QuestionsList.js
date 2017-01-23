@@ -15,25 +15,25 @@ export default class QuestionsList extends Component {
       <div className='questionlist-container'>
         <div className='questionlist-wrap'>
           {questions.map((q, idx) => {
-              const {color, state} = q;
-              let focusStyle = { width: '140px' };
-              if (idx === index) {
-                focusStyle = Object.assign(focusStyle, {
-                  filter: 'initial',
-                  transform: 'scale(1.3)'
-                });
-              }
-              if (idx - 3 === index) {
-                focusStyle = {
-                  width: '0px'
-                }
-              }
+            const {color, state} = q;
+            let focusStyle = { width: '140px' };
+            if (idx === index) {
+              focusStyle = Object.assign(focusStyle, {
+                filter: 'initial',
+                transform: 'scale(1.3)'
+              });
+            }
+            if (idx - 3 === index) {
+              focusStyle = {
+                width: '0px'
+              };
+            }
 
-              return (
-                <div key={idx} className='masked' style={focusStyle||addStyle}>
+            return (
+                <div key={idx} className='masked' style={focusStyle}>
                   <Question color={color} result={state}/>
                 </div>
-              );
+            );
           })}
         </div>
       </div>
