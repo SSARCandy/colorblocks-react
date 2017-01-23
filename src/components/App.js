@@ -58,11 +58,11 @@ export default class App extends Component {
     }
   }
 
-  handleKeyDown = (event) => {
-    console.log(event.keyCode);
-    if (!~[37, 38, 39, 40].indexOf(event.keyCode)) return;
+  handleKeyDown = (keyCode) => {
+    console.log(keyCode);
+    if (!~[37, 38, 39, 40].indexOf(keyCode)) return;
 
-    this.answerQuestion(KEY_COLOR_MAP[event.keyCode]);
+    this.answerQuestion(KEY_COLOR_MAP[keyCode]);
     this.generateQuestion();
   }
 
@@ -72,7 +72,7 @@ export default class App extends Component {
       answered: 0,
       correct: 0,
       score: 0,
-      time: 10,
+      time: 60,
       questionColor: [0, 1, 2, 3]
     });
 
@@ -83,10 +83,10 @@ export default class App extends Component {
     const {score, correct, answered, time, questionColor, start} = this.state;
 
     return (
-      <div className='container' onKeyDown={this.handleKeyDown} tabIndex={0}>
+      <div className='container' onKeyDown={(event) => {this.handleKeyDown(event.keyCode)}} tabIndex={0}>
         <StatusPanel time={time} score={score} />
-        <Question color={questionColor} />
-        <ArrowKey />
+        <Question color={questionColor}/>
+        <ArrowKey handleKeyDown={this.handleKeyDown}/>
         {!start && (
           <div>
             <End score={score} answered={answered} correct={correct}/>

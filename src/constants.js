@@ -1,13 +1,13 @@
 export const KEY_COLOR_MAP = {
-  37: 0,
-  38: 1,
-  39: 2,
-  40: 3
+  38: 0, // up
+  37: 1, // left
+  40: 2, // down
+  39: 3  // right
 };
 
 export const COLOR_MAP = [
-  'yellow',
-  'blue',
   'red',
-  'green'
+  'blue',
+  'green',
+  'yellow'
 ];

@@ -15,7 +15,7 @@
     width: 50px;
     height: 50px;
     font-size: 24px;
-    background: green;
+    background: blue;
     position: relative;
     right: 50px;
 }
@@ -24,7 +24,7 @@
     width: 50px;
     height: 50px;
     font-size: 24px;
-    background: yellow;
+    background: green;
     position: relative;
     top: -50px;
 }
@@ -33,8 +33,12 @@
     width: 50px;
     height: 50px;
     font-size: 24px;
-    background: blue;
+    background: yellow;
     position: relative;
     top: -100px;
     left: 50px;
+}
+
+button:active {
+    filter: brightness(150%);
 }

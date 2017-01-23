@@ -7,14 +7,14 @@ export default class ArrowKey extends Component {
   }
 
   render() {
-    const {ans} = this.props;
+    const {handleKeyDown} = this.props;
 
     return (
       <div className='arrow-wrap'>
-        <button className='btn-up'>&#8593;</button>
-        <button className='btn-left'>&#8592;</button>
-        <button className='btn-down'>&#8595;</button>
-        <button className='btn-right'>&#8594;</button>
+        <button onClick={() => {handleKeyDown(38)}} className='btn-up'>&#8593;</button>
+        <button onClick={() => {handleKeyDown(37)}} className='btn-left'>&#8592;</button>
+        <button onClick={() => {handleKeyDown(40)}} className='btn-down'>&#8595;</button>
+        <button onClick={() => {handleKeyDown(39)}} className='btn-right'>&#8594;</button>
       </div>
     );
   }
