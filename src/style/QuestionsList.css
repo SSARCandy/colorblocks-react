@@ -11,7 +11,6 @@
 
 .focus {
     filter: brightness(100%);
-
 }
 
 .masked {
@@ -21,4 +20,11 @@
     -ms-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+}
+
+@media screen and (max-width: 767px) {
+    .questionlist-container {
+        position: relative;
+        left: calc((100% - 700px)/2);
+    }
 }
