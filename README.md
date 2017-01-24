@@ -22,3 +22,36 @@ A fun puzzle game implemented with React.js
 ![](./screenshot/1.JPG)
 ![](./screenshot/3.jpg)
 ![](./screenshot/2.JPG)
+
+
+## Develop
+
+### Install
+
+```bash
+$ npm install -g webpack webpack-dev-server
+$ npm install
+$ mkdir dist
+$ cp index.html dist
+```
+
+### Start Dev-server
+
+```bash
+$ npm run dev # start webpack-dev-server
+```
+
+### Lint
+
+```bash
+$ npm run lint # run eslint
+```
+
+### Build
+
+```bash
+$ npm build # build production version to dist/
+```
+
+
+

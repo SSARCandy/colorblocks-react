@@ -68,6 +68,7 @@ export default class App extends Component {
   }
 
   handleKeyDown = (keyCode) => {
+    if (!this.state.start) return;
     if (!~[37, 38, 39, 40].indexOf(keyCode)) return;
 
     this.answerQuestion(KEY_COLOR_MAP[keyCode]);
