@@ -17,15 +17,15 @@ export default class App extends Component {
   }
 
   tick = () => {
-    this.setState({
-      time: this.state.time - 1
-    });
-    if (this.state.time <= 0) {
-      this.setState({
-        start: false
-      });
+    const {time} = this.state;
+    if (time <= 1) {
       clearInterval(this.interval);
     }
+
+    this.setState({
+      time: time - 1,
+      start: time > 1
+    });
   }
 
   generateQuestion = () => {
@@ -64,6 +64,7 @@ export default class App extends Component {
         combo: 0
       });
     }
+    
     this.setState(nextState);
   }
 
