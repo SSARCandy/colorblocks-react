@@ -13,7 +13,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = initial_state;
+    this.state = initial_state();
   }
 
   tick = () => {
@@ -76,7 +76,7 @@ export default class App extends Component {
   }
 
   handleRestart = () => {
-    this.setState(Object.assign(initial_state, { start: true }));
+    this.setState(Object.assign(initial_state(), { start: true }));
     this.interval = setInterval(this.tick, 1000);
   }
 

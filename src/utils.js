@@ -10,23 +10,25 @@ export const shuffle = function (arr) {
   return a;
 };
 
-export const initial_state = {
-  start: false,
-  combo: 0,
-  answered: 0,
-  correct: 0,
-  time: INIT_TIME,
-  questions: [{
-    color: shuffle([0, 1, 2, 3]),
-    state: ''
-  }, {
-    color: shuffle([0, 1, 2, 3]),
-    state: ''
-  }, {
-    color: shuffle([0, 1, 2, 3]),
-    state: ''
-  }, {
-    color: shuffle([0, 1, 2, 3]),
-    state: ''
-  }]
+export const initial_state = function () {
+  return Object.assign({
+    start: false,
+    combo: 0,
+    answered: 0,
+    correct: 0,
+    time: INIT_TIME,
+    questions: [{
+      color: shuffle([0, 1, 2, 3]),
+      state: ''
+    }, {
+      color: shuffle([0, 1, 2, 3]),
+      state: ''
+    }, {
+      color: shuffle([0, 1, 2, 3]),
+      state: ''
+    }, {
+      color: shuffle([0, 1, 2, 3]),
+      state: ''
+    }]
+  }, {});
 };
