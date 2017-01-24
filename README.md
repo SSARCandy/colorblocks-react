@@ -20,5 +20,5 @@ A fun puzzle game implemented with React.js
 ## Screenshots
 
 ![](./screenshot/1.JPG)
-![](./screenshot/3.JPG)
+![](./screenshot/3.jpg)
 ![](./screenshot/2.JPG)
