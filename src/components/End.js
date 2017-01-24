@@ -12,13 +12,19 @@ export default class End extends Component {
 
     return (
       <div className='end-wrap'>
-        <h2 style={{textAlign: 'center'}}>!!  Welcome to COLOR - BLOCK !!</h2>
-        <ul>
-          <li>Answer the color that didn't appear in Questions.</li>
-          <li>You have {INIT_TIME} sec to answer these questions.</li>
-          <li>You will get bonus time if you get {COMBO_THRES} combo corrects.</li>
-          <li>Use arrow keys or click button to answer.</li>
-        </ul>
+        <h2 style={{textAlign: 'center'}}>Welcome to ColorBlocks</h2>
+        <p>
+          Answer the color that didn't appear in Questions.
+        </p>
+        <p>
+          You have {INIT_TIME} sec to answer these questions.
+        </p>
+        <p>
+          You will get bonus time if you get {COMBO_THRES} combo corrects.
+        </p>
+        <p>
+          Use arrow keys or click button to answer.
+        </p>
         { answered > 0 && (
           <table className='statistic'>
             <tbody>

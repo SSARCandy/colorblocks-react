@@ -1,14 +1,12 @@
 .end-wrap {
     position: absolute;
-    top: 5%;
-    left: calc(50% - 300px);
+    top: 10%;
     font-size: 24px;
     background: #ccc;
     z-index: 100;
-    width: 600px;
-
-    padding: 5px 20px 13px 20px;
-    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 td:nth-child(2) {
@@ -44,4 +42,11 @@ td:nth-child(2) {
 
 .statistic {
     margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+    .end-wrap {
+        font-size: 16px;
+    }
+
 }
