@@ -26,7 +26,7 @@
     position: absolute;
     font-weight: 700;
     right: 20px;
-    top: 20px;
+    top: 200px;
     color: green;
     opacity: 0;
     border-width: 1px;
@@ -38,4 +38,10 @@
     -ms-transition: opacity 0.5s ease-in-out;
     -o-transition: opacity 0.5s ease-in-out;
     transition: opacity 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 767px) {
+    .time-bonus-toast {
+        top: 200px;
+    }
 }
