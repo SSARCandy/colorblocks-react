@@ -10,12 +10,12 @@ export default class Question extends Component {
 
   render() {
     const {color, result, bonus} = this.props;
+    const resultStyle = result == 'correct' ? 'green' : 'red';
+    const icon = result == 'correct' ? '✔' : '✘';
     const style = {
       color: COLOR_MAP[color[0]],
       background: COLOR_MAP[color[1]]
     };
-    const resultStyle = result == 'correct' ? 'green' : 'red';
-    const icon = result == 'correct' ? '✔' : '✘';
 
     return (
       <div className='question-wrap'>

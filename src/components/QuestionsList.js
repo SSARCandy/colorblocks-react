@@ -22,17 +22,16 @@ export default class QuestionsList extends Component {
                 filter: 'initial',
                 transform: 'scale(1.3)'
               });
-            }
-            if (idx - 3 === index) {
+            } else if (idx - 3 === index) {
               focusStyle = {
                 width: '0px'
               };
             }
 
             return (
-                <div key={idx} className='masked' style={focusStyle}>
-                  <Question color={color} result={state}/>
-                </div>
+              <div key={idx} className='masked' style={focusStyle}>
+                <Question color={color} result={state}/>
+              </div>
             );
           })}
         </div>

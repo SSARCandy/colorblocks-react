@@ -4,7 +4,7 @@ import QuestionsList from './QuestionsList';
 import ArrowKey from './ArrowKey';
 import End from './End';
 import { KEY_COLOR_MAP, COLOR_MAP, INIT_TIME, COMBO_THRES, COMBO_BONUS } from '../constants';
-import { shuffle } from '../utils';
+import { initial_state, shuffle } from '../utils';
 import '../style/App.css';
 
 
@@ -13,26 +13,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      start: false,
-      combo: 0,
-      answered: 0,
-      correct: 0,
-      time: INIT_TIME,
-      questions: [{
-        color: shuffle([0,1,2,3]),
-        state: ''
-      }, {
-        color: shuffle([0,1,2,3]),
-        state: ''
-      }, {
-        color: shuffle([0,1,2,3]),
-        state: ''
-      }, {
-        color: shuffle([0,1,2,3]),
-        state: ''
-      }]
-    };
+    this.state = initial_state;
   }
 
   tick = () => {
@@ -94,27 +75,7 @@ export default class App extends Component {
   }
 
   handleRestart = () => {
-    this.setState({
-      start: true,
-      answered: 0,
-      correct: 0,
-      combo: 0,
-      time: INIT_TIME,
-      questions: [{
-        color: shuffle([0,1,2,3]),
-        state: ''
-      }, {
-        color: shuffle([0,1,2,3]),
-        state: ''
-      }, {
-        color: shuffle([0,1,2,3]),
-        state: ''
-      }, {
-        color: shuffle([0,1,2,3]),
-        state: ''
-      }]
-    });
-
+    this.setState(Object.assign(initial_state, { start: true }));
     this.interval = setInterval(this.tick, 1000);
   }
 
@@ -123,17 +84,17 @@ export default class App extends Component {
     const bonusTime = (combo > 0) && (combo % COMBO_THRES === 0);
 
     return (
-      <div className='container' onKeyDown={(event) => {this.handleKeyDown(event.keyCode);}} tabIndex={0}>
-        <StatusPanel time={time} score={correct} bonus={bonusTime}/>
-        <QuestionsList questions={questions} index={answered}/>
-        <ArrowKey handleKeyDown={this.handleKeyDown}/>
+      <div className='container' onKeyDown={(event) => { this.handleKeyDown(event.keyCode); } } tabIndex={0}>
+        <StatusPanel time={time} score={correct} bonus={bonusTime} />
+        <QuestionsList questions={questions} index={answered} />
+        <ArrowKey handleKeyDown={this.handleKeyDown} />
         {!start && (
           <div>
             <End
               handleRestart={this.handleRestart}
               answered={answered}
-              correct={correct}/>
-            <div className='overlay'/>
+              correct={correct} />
+            <div className='overlay' />
           </div>
         )}
       </div>
