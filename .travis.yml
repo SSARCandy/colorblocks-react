@@ -22,6 +22,7 @@ script:
 - npm run lint
 - mkdir dist && cp index.html dist/
 - npm run build
+after_success:
 - git clone https://github.com/SSARCandy/colorblocks-react gh-pages
 - cd gh-pages
 - git checkout gh-pages
