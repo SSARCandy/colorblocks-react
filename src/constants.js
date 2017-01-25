@@ -17,7 +17,7 @@ export const COLOR_LABEL_MAP = [
   'BLUE',
   'GREEN',
   'YELLOW'
-]
+];
 
 export const INIT_TIME = 60;
 export const COMBO_THRES = 5;
