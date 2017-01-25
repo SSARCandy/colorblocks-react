@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { KEY_COLOR_MAP, COLOR_MAP } from '../constants';
+import { KEY_COLOR_MAP, COLOR_MAP, COLOR_LABEL_MAP } from '../constants';
 import '../style/Question.css';
 
 
@@ -20,7 +20,7 @@ export default class Question extends Component {
     return (
       <div className='question-wrap'>
         <div style={style} className='question'>
-          {COLOR_MAP[color[2]].toUpperCase()}
+          {COLOR_LABEL_MAP[color[2]]}
         </div>
         {result && <span className={resultStyle}>{icon}</span>}
       </div>
