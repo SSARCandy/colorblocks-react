@@ -12,6 +12,13 @@ export const COLOR_MAP = [
   'yellow'
 ];
 
-export const INIT_TIME = 5;
+export const COLOR_LABEL_MAP = [
+  'RED',
+  'BLUE',
+  'GREEN',
+  'YELLOW'
+];
+
+export const INIT_TIME = 60;
 export const COMBO_THRES = 5;
 export const COMBO_BONUS = 5;
